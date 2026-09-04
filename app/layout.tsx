@@ -2,9 +2,10 @@ import './style.css';
 import './extra.css';
 import type { Metadata } from 'next';
 import AnalyticsConsent from './AnalyticsConsent';
+import {legal} from './legal';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jobwert.de';
-const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const gaId = legal.gaId;
 const indexable = process.env.NEXT_PUBLIC_INDEXABLE !== 'false';
 
 export const metadata: Metadata = {
