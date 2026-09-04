@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'JobWert – Was ist dein Jobangebot wirklich wert?',
   description: 'Vergleiche Gehalt, Steuern, Wohn- und Pendelkosten und finde heraus, ob sich ein neuer Job wirklich lohnt.',
   metadataBase: new URL(siteUrl),
-  alternates: { canonical: '/' },
+  alternates: { canonical: '/', languages:{'de-DE':'/','en':'/en/','tr':'/tr/'} },
   openGraph: {
     type: 'website',
     locale: 'de_DE',
@@ -43,7 +43,7 @@ const structuredData={
   url:siteUrl,
   applicationCategory:'BusinessApplication',
   operatingSystem:'Web',
-  inLanguage:'de-DE',
+  inLanguage:['de-DE','en','tr'],
   description:'Kostenloser Rechner zum Vergleich eines aktuellen Jobs mit einem neuen Jobangebot anhand von geschätztem Netto, Wohn- und Pendelkosten sowie Arbeits- und Pendelzeit.',
   offers:{'@type':'Offer',price:'0',priceCurrency:'EUR'},
 };
