@@ -1,0 +1,1 @@
+export default function Page(){return <main className="card"><h1>Datenschutz</h1><p>JobWert verarbeitet die Eingaben des Rechners im Browser. Vor dem öffentlichen Launch werden hier die vollständigen Datenschutzhinweise einschließlich Analytics-Einwilligung ergänzt.</p><a href="/">Zurück</a></main>}

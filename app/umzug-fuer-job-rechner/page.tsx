@@ -1,0 +1,1 @@
+export default function Page(){return <main className="landing"><a className="logo" href="/"><strong>Job</strong>Wert</a><h1>Umzug für einen neuen Job</h1><p>Vergleiche mehr Gehalt mit veränderten Wohn- und Pendelkosten und erkenne den realen finanziellen Effekt eines Umzugs.</p><a className="cta" href="/#rechner">Jetzt vergleichen</a></main>}

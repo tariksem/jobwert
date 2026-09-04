@@ -1,0 +1,1 @@
+export default function Page(){return <main className="landing"><a className="logo" href="/"><strong>Job</strong>Wert</a><h1>Homeoffice vs. Büro</h1><p>Vergleiche Arbeitszeit, Pendelkosten und Homeoffice-Tage zwischen zwei Jobs.</p><a className="cta" href="/#rechner">Jetzt vergleichen</a></main>}

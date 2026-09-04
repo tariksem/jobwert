@@ -1,0 +1,1 @@
+export default function Page(){return <main className="landing"><a className="logo" href="/"><strong>Job</strong>Wert</a><h1>Jobangebote vergleichen</h1><p>Vergleiche dein aktuelles Arbeitsverhältnis mit einem neuen Angebot – inklusive Netto, Wohnkosten, Pendelkosten und Arbeitszeit.</p><a className="cta" href="/#rechner">Jetzt vergleichen</a></main>}

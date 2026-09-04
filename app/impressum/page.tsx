@@ -1,0 +1,1 @@
+export default function Page(){return <main className="card"><h1>Impressum</h1><p>Platzhalter für die gesetzlich erforderlichen Anbieterangaben. Diese Angaben werden vor dem öffentlichen Launch mit der finalen Domain ergänzt.</p><a href="/">Zurück</a></main>}

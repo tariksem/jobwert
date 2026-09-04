@@ -1,0 +1,1 @@
+export default function Page(){return <main className="landing"><a className="logo" href="/"><strong>Job</strong>Wert</a><h1>Gehaltserhöhung Rechner</h1><p>Sieh, wie viel von einer Gehaltserhöhung nach Steuern und Sozialabgaben tatsächlich übrig bleibt.</p><a className="cta" href="/#rechner">Jetzt vergleichen</a></main>}
