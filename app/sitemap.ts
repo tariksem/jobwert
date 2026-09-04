@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/pendelkosten-jobwechsel',
     '/lohnt-sich-mehr-gehalt',
     '/weniger-gehalt-mehr-homeoffice',
+    '/methodik',
   ];
   if(process.env.NEXT_PUBLIC_PREMIUM_REPORT_URL)paths.push('/premium-report');
   return paths.map((path) => ({
