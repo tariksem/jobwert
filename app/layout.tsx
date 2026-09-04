@@ -36,6 +36,18 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData={
+  '@context':'https://schema.org',
+  '@type':'WebApplication',
+  name:'JobWert',
+  url:siteUrl,
+  applicationCategory:'BusinessApplication',
+  operatingSystem:'Web',
+  inLanguage:'de-DE',
+  description:'Kostenloser Rechner zum Vergleich eines aktuellen Jobs mit einem neuen Jobangebot anhand von geschätztem Netto, Wohn- und Pendelkosten sowie Arbeits- und Pendelzeit.',
+  offers:{'@type':'Offer',price:'0',priceCurrency:'EUR'},
+};
+
 export default function RootLayout({children}:{children:React.ReactNode}){
-  return <html lang="de"><body>{children}<AnalyticsConsent gaId={gaId}/></body></html>;
+  return <html lang="de"><body><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData)}}/>{children}<AnalyticsConsent gaId={gaId}/></body></html>;
 }
