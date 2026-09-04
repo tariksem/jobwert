@@ -1,5 +1,5 @@
 export const legal={
-  name:process.env.NEXT_PUBLIC_LEGAL_NAME||'',
+  name:process.env.NEXT_PUBLIC_LEGAL_NAME||'Tarik Semerci',
   address:process.env.NEXT_PUBLIC_LEGAL_ADDRESS||'',
   email:process.env.NEXT_PUBLIC_LEGAL_EMAIL||'',
   phone:process.env.NEXT_PUBLIC_LEGAL_PHONE||'',
