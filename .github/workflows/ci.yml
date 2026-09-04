@@ -24,5 +24,8 @@ jobs:
       - name: Type check
         run: npm run check
 
+      - name: Regression tests
+        run: npm test
+
       - name: Build static site
         run: npm run build
