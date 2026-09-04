@@ -1,37 +1,64 @@
+import {calculate} from 'lohnsteuerrechner';
+
 export type TaxClass = 1|2|3|4|5|6;
 export type ChurchTaxRate = 0|8|9;
 type Opts={children:0|1|2|3|4|5;healthAdditionalRate:number;taxClass:TaxClass;churchTaxRate:ChurchTaxRate};
+
 const clamp=(n:number,min:number,max:number)=>Math.min(max,Math.max(min,n));
-function incomeTax2026(zve:number,taxClass:TaxClass){
-  const x=Math.max(0,zve);
-  let tax=0;
-  if(x<=12348) tax=0;
-  else if(x<=17799){const y=(x-12348)/10000;tax=(914.51*y+1400)*y;}
-  else if(x<=69878){const z=(x-17799)/10000;tax=(173.10*z+2397)*z+1034.87;}
-  else if(x<=277825) tax=0.42*x-11135.63;
-  else tax=0.45*x-19470.38;
-  if(taxClass===3) tax*=0.62;
-  if(taxClass===5) tax*=1.18;
-  if(taxClass===6) tax*=1.28;
-  if(taxClass===2) tax*=0.96;
-  return Math.max(0,tax);
-}
+
+/**
+ * Approximate employee social-insurance contributions for a standard employee
+ * in statutory health/pension insurance outside Saxony. Wage tax, solidarity
+ * surcharge and the church-tax assessment base are calculated with the official
+ * BMF PAP 2026 algorithm through the lohnsteuerrechner package.
+ */
 export function estimateNet2026(grossAnnual:number,o:Opts){
   const gross=Math.max(0,grossAnnual);
-  const healthBBG=69750, pensionBBG=101400;
-  const healthBase=Math.min(gross,healthBBG), pensionBase=Math.min(gross,pensionBBG);
+  const healthBBG=69750;
+  const pensionBBG=101400;
+  const healthBase=Math.min(gross,healthBBG);
+  const pensionBase=Math.min(gross,pensionBBG);
+
   const pension=pensionBase*0.093;
   const unemployment=pensionBase*0.013;
   const health=healthBase*((0.146+o.healthAdditionalRate/100)/2);
   let careRate=o.children===0?0.024:0.018;
-  if(o.children>=2) careRate-=Math.min(4,o.children-1)*0.0025;
+  if(o.children>=2)careRate-=Math.min(4,o.children-1)*0.0025;
   const care=healthBase*clamp(careRate,0.008,0.024);
   const social=pension+unemployment+health+care;
-  const taxable=Math.max(0,gross-social-1230);
-  const incomeTax=incomeTax2026(taxable,o.taxClass);
-  const soliAllowance=(o.taxClass===3?40700:20350);
-  const soli=incomeTax>soliAllowance?incomeTax*0.055:0;
-  const church=incomeTax*(o.churchTaxRate/100);
+
+  const monthlyGrossCents=Math.round((gross/12)*100);
+  const pap=calculate(2026,{
+    LZZ:2,
+    RE4:monthlyGrossCents,
+    STKL:o.taxClass,
+    R:o.churchTaxRate>0?1:0,
+    ZKF:o.children,
+    KRV:0,
+    PKV:0,
+    KVZ:o.healthAdditionalRate,
+    PVZ:o.children===0?1:0,
+    PVS:0,
+    PVA:Math.min(4,Math.max(0,o.children-1)),
+    af:0,
+  });
+
+  const monthlyIncomeTax=pap.LSTLZZ/100;
+  const monthlySoli=pap.SOLZLZZ/100;
+  const monthlyChurchBase=pap.BK/100;
+  const monthlyChurch=monthlyChurchBase*(o.churchTaxRate/100);
+
+  const incomeTax=monthlyIncomeTax*12;
+  const soli=monthlySoli*12;
+  const church=monthlyChurch*12;
   const annualNet=Math.max(0,gross-social-incomeTax-soli-church);
-  return {annualNet,monthlyNet:annualNet/12,incomeTax,soli,church,social};
+
+  return{
+    annualNet,
+    monthlyNet:annualNet/12,
+    incomeTax,
+    soli,
+    church,
+    social,
+  };
 }
