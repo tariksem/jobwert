@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   const paths=[
     '',
+    '/en',
+    '/tr',
     '/jobangebote-vergleichen',
     '/gehaltserhoehung-rechner',
     '/umzug-fuer-job-rechner',
