@@ -4,7 +4,7 @@ export const legal={
   email:process.env.NEXT_PUBLIC_LEGAL_EMAIL||'kontakt@jobwert.de',
   phone:process.env.NEXT_PUBLIC_LEGAL_PHONE||'',
   siteUrl:process.env.NEXT_PUBLIC_SITE_URL||'https://jobwert.de',
-  gaId:process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID||'',
+  gaId:process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID||'G-BVLV3S8J8G',
 };
 
 export const legalReady=Boolean(legal.name&&legal.address&&legal.email);
