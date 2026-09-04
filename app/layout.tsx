@@ -1,4 +1,5 @@
 import './style.css';
+import './extra.css';
 import type { Metadata } from 'next';
 import AnalyticsConsent from './AnalyticsConsent';
 
