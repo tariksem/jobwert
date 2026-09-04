@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/gehaltserhoehung-rechner',
     '/umzug-fuer-job-rechner',
     '/homeoffice-vs-buero-rechner',
+    '/gehaltsverhandlung',
   ].map((path) => ({
     url: `${base}${path}`,
     lastModified,
