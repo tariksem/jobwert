@@ -37,7 +37,7 @@ jobs:
           # Cloudflare Pages deploys the same commit asynchronously. Give the
           # public key file a short window to become available before pinging.
           sleep 75
-          payload='{"host":"jobwert.de","key":"4dc9f87f6cb72de4032664fbb1f85978","keyLocation":"https://jobwert.de/4dc9f87f6cb72de4032664fbb1f85978.txt","urlList":["https://jobwert.de/","https://jobwert.de/jobangebote-vergleichen/","https://jobwert.de/gehaltserhoehung-rechner/","https://jobwert.de/umzug-fuer-job-rechner/","https://jobwert.de/homeoffice-vs-buero-rechner/","https://jobwert.de/gehaltsverhandlung/","https://jobwert.de/jobwechsel-rechner/","https://jobwert.de/pendelkosten-jobwechsel/","https://jobwert.de/lohnt-sich-mehr-gehalt/","https://jobwert.de/weniger-gehalt-mehr-homeoffice/"]}'
+          payload='{"host":"jobwert.de","key":"4dc9f87f6cb72de4032664fbb1f85978","keyLocation":"https://jobwert.de/4dc9f87f6cb72de4032664fbb1f85978.txt","urlList":["https://jobwert.de/","https://jobwert.de/jobangebote-vergleichen/","https://jobwert.de/gehaltserhoehung-rechner/","https://jobwert.de/umzug-fuer-job-rechner/","https://jobwert.de/homeoffice-vs-buero-rechner/","https://jobwert.de/gehaltsverhandlung/","https://jobwert.de/jobwechsel-rechner/","https://jobwert.de/pendelkosten-jobwechsel/","https://jobwert.de/lohnt-sich-mehr-gehalt/","https://jobwert.de/weniger-gehalt-mehr-homeoffice/","https://jobwert.de/methodik/"]}'
           http_code=$(curl -sS -o /tmp/indexnow-response.txt -w '%{http_code}' \
             -H 'Content-Type: application/json; charset=utf-8' \
             -d "$payload" https://api.indexnow.org/indexnow || true)
