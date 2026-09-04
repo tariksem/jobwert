@@ -7,6 +7,7 @@ import {legal} from './legal';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jobwert.de';
 const gaId = legal.gaId;
 const indexable = process.env.NEXT_PUBLIC_INDEXABLE !== 'false';
+const socialImage='/jobwert-social.svg';
 
 export const metadata: Metadata = {
   title: 'JobWert – Was ist dein Jobangebot wirklich wert?',
@@ -20,6 +21,13 @@ export const metadata: Metadata = {
     siteName: 'JobWert',
     title: 'JobWert – Was ist dein Jobangebot wirklich wert?',
     description: 'Vergleiche Gehalt, Steuern, Wohn- und Pendelkosten und finde heraus, ob sich ein neuer Job wirklich lohnt.',
+    images:[{url:socialImage,width:1200,height:630,alt:'JobWert – Jobangebote real vergleichen'}],
+  },
+  twitter:{
+    card:'summary_large_image',
+    title:'JobWert – Was ist dein Jobangebot wirklich wert?',
+    description:'Vergleiche Gehalt, Wohn- und Pendelkosten, Arbeitszeit und Homeoffice kostenlos.',
+    images:[socialImage],
   },
   robots: {
     index: indexable,
