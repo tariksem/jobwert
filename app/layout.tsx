@@ -3,9 +3,9 @@ import './extra.css';
 import type { Metadata } from 'next';
 import AnalyticsConsent from './AnalyticsConsent';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jobwert.pages.dev';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jobwert.de';
 const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-const indexable = process.env.NEXT_PUBLIC_INDEXABLE === 'true';
+const indexable = process.env.NEXT_PUBLIC_INDEXABLE !== 'false';
 
 export const metadata: Metadata = {
   title: 'JobWert – Was ist dein Jobangebot wirklich wert?',
