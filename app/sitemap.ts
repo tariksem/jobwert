@@ -5,7 +5,7 @@ export const dynamic = 'force-static';
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://jobwert.pages.dev';
   const lastModified = new Date();
-  return [
+  const paths=[
     '',
     '/jobangebote-vergleichen',
     '/gehaltserhoehung-rechner',
@@ -16,7 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/pendelkosten-jobwechsel',
     '/lohnt-sich-mehr-gehalt',
     '/weniger-gehalt-mehr-homeoffice',
-  ].map((path) => ({
+  ];
+  if(process.env.NEXT_PUBLIC_PREMIUM_REPORT_URL)paths.push('/premium-report');
+  return paths.map((path) => ({
     url: `${base}${path}`,
     lastModified,
     changeFrequency: 'weekly' as const,
