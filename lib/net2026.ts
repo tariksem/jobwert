@@ -11,6 +11,12 @@ const clamp=(n:number,min:number,max:number)=>Math.min(max,Math.max(min,n));
  * in statutory health/pension insurance outside Saxony. Wage tax, solidarity
  * surcharge and the church-tax assessment base are calculated with the official
  * BMF PAP 2026 algorithm through the lohnsteuerrechner package.
+ *
+ * `children` is intentionally used only for long-term-care insurance here. It is
+ * not the same thing as the BMF PAP child allowance factor (ZKF), which can be
+ * fractional and depends on the individual tax situation. Until JobWert asks for
+ * that separate value explicitly, ZKF stays at 0 rather than guessing it from a
+ * simple child count.
  */
 export function estimateNet2026(grossAnnual:number,o:Opts){
   const gross=Math.max(0,grossAnnual);
@@ -33,7 +39,7 @@ export function estimateNet2026(grossAnnual:number,o:Opts){
     RE4:monthlyGrossCents,
     STKL:o.taxClass,
     R:o.churchTaxRate>0?1:0,
-    ZKF:o.children,
+    ZKF:0,
     KRV:0,
     PKV:0,
     KVZ:o.healthAdditionalRate,
