@@ -12,6 +12,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/umzug-fuer-job-rechner',
     '/homeoffice-vs-buero-rechner',
     '/gehaltsverhandlung',
+    '/jobwechsel-rechner',
+    '/pendelkosten-jobwechsel',
+    '/lohnt-sich-mehr-gehalt',
+    '/weniger-gehalt-mehr-homeoffice',
   ].map((path) => ({
     url: `${base}${path}`,
     lastModified,
