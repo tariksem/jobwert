@@ -1,4 +1,5 @@
 import type {Metadata} from 'next';
+import HtmlLangSetter from '../HtmlLangSetter';
 
 export const metadata:Metadata={
   title:'JobWert – İş Tekliflerini ve Gerçek Kazancı Karşılaştır',
@@ -6,4 +7,6 @@ export const metadata:Metadata={
   alternates:{canonical:'/tr/',languages:{'de-DE':'/','en':'/en/','tr':'/tr/'}},
 };
 
-export default function TurkishLayout({children}:{children:React.ReactNode}){return children;}
+export default function TurkishLayout({children}:{children:React.ReactNode}){
+  return <><HtmlLangSetter lang="tr"/>{children}</>;
+}

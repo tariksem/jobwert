@@ -1,4 +1,5 @@
 import type {Metadata} from 'next';
+import HtmlLangSetter from '../HtmlLangSetter';
 
 export const metadata:Metadata={
   title:'JobWert – Compare Job Offers and Real Disposable Income',
@@ -6,4 +7,6 @@ export const metadata:Metadata={
   alternates:{canonical:'/en/',languages:{'de-DE':'/','en':'/en/','tr':'/tr/'}},
 };
 
-export default function EnglishLayout({children}:{children:React.ReactNode}){return children;}
+export default function EnglishLayout({children}:{children:React.ReactNode}){
+  return <><HtmlLangSetter lang="en"/>{children}</>;
+}
