@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" role="img" aria-labelledby="title desc">
+  <title id="title">JobWert</title>
+  <desc id="desc">JobWert logo with growth chart and upward arrow</desc>
+  <g transform="translate(6 9)">
+    <rect x="4" y="56" width="22" height="36" rx="7" fill="#66a7ff"/>
+    <rect x="34" y="40" width="22" height="52" rx="7" fill="#2d82f6"/>
+    <rect x="64" y="23" width="22" height="69" rx="7" fill="#1768ee"/>
+    <path d="M9 48 C30 44, 51 34, 70 17" fill="none" stroke="#1768ee" stroke-width="8" stroke-linecap="round"/>
+    <path d="M61 13 L78 11 L76 28" fill="none" stroke="#1768ee" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="112" y="66" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="48" font-weight="800" letter-spacing="-1.5">
+    <tspan fill="#1768ee">Job</tspan><tspan fill="#0b1538">Wert</tspan>
+  </text>
+  <text x="114" y="91" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="500" fill="#65708a">Bessere Entscheidungen. Mehr vom Leben.</text>
+</svg>
