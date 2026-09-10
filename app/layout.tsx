@@ -1,5 +1,6 @@
 import './style.css';
 import './extra.css';
+import './quick.css';
 import type { Metadata } from 'next';
 import AnalyticsConsent from './AnalyticsConsent';
 import {legal} from './legal';
@@ -44,7 +45,7 @@ const structuredData={
   applicationCategory:'BusinessApplication',
   operatingSystem:'Web',
   inLanguage:['de-DE','en','tr'],
-  description:'Kostenloser Rechner zum Vergleich eines aktuellen Jobs mit einem neuen Jobangebot anhand von geschätztem Netto, Wohn- und Pendelkosten sowie Arbeits- und Pendelzeit.',
+  description:'Kostenloser Schnellvergleich für Jobwechsel: geschätztes Netto, Wohn- und Lebenshaltungskosten, Pendelkosten, Pendelzeit, effektiver Stundenwert und Mindestgehalt.',
   offers:{'@type':'Offer',price:'0',priceCurrency:'EUR'},
 };
 
