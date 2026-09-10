@@ -45,3 +45,21 @@ jobs:
           cat /tmp/indexnow-response.txt || true
           # IndexNow is an SEO notification, not a build gate. A temporary
           # endpoint failure must not block production deployment.
+
+      - name: Verify production deployment
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          # Cloudflare Pages deploy is asynchronous. Retry for up to two minutes
+          # and fail only if the new JobWert quick-comparison headline never appears.
+          for attempt in 1 2 3 4 5 6; do
+            echo "Production smoke check attempt $attempt/6"
+            html=$(curl -fsSL --max-time 15 https://jobwert.de/ || true)
+            if printf '%s' "$html" | grep -Fq 'Neuer Job? Lohnt sich das wirklich?'; then
+              echo "Production smoke check passed: new quick comparison is live."
+              exit 0
+            fi
+            sleep 20
+          done
+          echo "Production smoke check failed: expected quick-comparison headline was not found."
+          exit 1
